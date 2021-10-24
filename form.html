@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Visitor form | COCOON Travels</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Ubuntu:ital@1&display=swap"
+      rel="stylesheet"/>
+      <head><LINK REL="SHORTCUT ICON"  HREF="./images/logoo.png"></head>
+    <style>
+       .parallax {
+        /* The image used */
+        background-image: url("./images/background.png");
+
+        /* Set a specific height */
+        min-height: 1000px;
+
+        /* Create the parallax scrolling effect */
+        background-attachment: fixed;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+      table.nav-table {
+        font-size: 40px;
+        font-family: monospace;
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      td {
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+
+      div {
+        font-size: 15px;
+        font-family: Verdana,Geneva, Tahoma, sans-serif;
+        padding-top: 5%;
+        padding-left: 20%;
+        padding-right: 20%;
+        padding-bottom: 25%;
+      }
+      h1 {
+        width: auto;
+        font-size: 70px;
+        font-family: monospace;
+        color: rgb(26, 19, 9);
+      }
+      p {
+        font-size: 50px;
+        font-family: sans-serif;
+      }
+      .form {
+        border: 0px solid black;
+        border-radius: 10px;
+      }
+    </style>
+    <script>
+      function checkData() {
+        var fullname = document.getElementById("fullname");
+        var email = document.getElementById("email");
+        var phone = document.getElementById("phone");
+        var enquiry = document.getElementById("Enquiry");
+        var userChoice = document.getElementById("location")
+        var location = userChoice.options[userChoice.selectedIndex].value
+		var count = 5
+        if (fullname.value.length == 0) {
+          count = count - 1;
+        }
+        if (phone.value.length == 0) {
+          count = count - 1;
+        }
+        if (email.value.length == 0) {
+          count = count - 1;
+        }
+        if (location == "") {
+          count = count - 1;
+        }
+        if (enquiry.value.length == 0) {
+          count = count - 1;
+        }
+		if (count == 5) {
+            var result = window.open(
+              "",
+              "",
+              "top = 400, left = 500, width = 500, height = 400"
+            );
+            result.document.write("<p><b>Congratulation !</b><p>");
+            result.document.write(
+              "<span><b>Your Name: </b><span>" +
+                document.getElementById("fullname").value +
+                "<p></p>"
+            );
+            result.document.write(
+              "<span><b>Your Phone Number: </b><span>" +
+                document.getElementById("phone").value +
+                "<p></p>"
+            );
+            result.document.write(
+              "<span><b>Your Email: </b><span>" +
+                document.getElementById("email").value + "<p></p>"
+            );
+            result.document.write(
+              "<span><b>Your Location: </b><span>" +
+                location + "<p></p>"
+            );
+            result.document.write(
+              "<span><b>Your Enquiry: </b><span>" +
+                document.getElementById("Enquiry").value + "<p></p>"
+            );
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <div class="parallax"></div>
+    <div style="height:auto;background-color:rgb(253, 253, 253);font-size:36px">
+    <table class="nav-table"><!-- use the table layout to organize the information presented  -->
+      <tr>
+        <td><a href="./index.html">Homepage</a></td>
+        <td><a href="./news.html">News</a></td>
+        <td><a href="./form.html">Form</a></td>
+        <td><a href="./about-me.html">About Me</a></td>
+      </tr>
+    </table>
+    <div align="center">
+      <h1 align="center">Visitor Form</h1>
+      <form>
+      <fieldset>
+        <!-- use the table layout to organize the information presented  -->
+      <table align="center" class="form">
+        <form>
+          <tr>
+            <td>
+              <label for="fullname">Full name:</label>
+            </td>
+            <td>
+              <input
+                type="text"
+                name="fullname"
+                id="fullname"
+                placeholder="Enter your fullname"
+				required />
+            </td>
+          </tr>
+          <tr>
+            <td><label for="email">Email:</label></td>
+            <td>
+              <input
+                type="email"
+                name="email"
+                id="email"
+                placeholder="Enter your email"
+				required
+              />
+            </td>
+          </tr>
+          <tr>
+            <td><label for="gender">Gender:</label></td>
+            <td>
+              <input type="radio" name="gender" id="male" value="Male" checked />
+              <label for="Male">Male</label>
+              <input type="radio" name="gender" id="female" value="Female" />
+              <label for="Female">Female</label>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label for="phone">Phone Number:</label>
+            </td>
+            <td>
+              <input type="telephone" name="phone" id="phone" placeholder="" required />
+            </td>
+          </tr>
+          <tr>
+            <td>Location</td>
+            <td>
+              <select name="location" id="location" required>
+                <option value="" disabled selected>Select Your Location</option>
+                <option value="Vietnam"> Vietnam </option>
+                <option value="England"> England</option>
+                <option value="China"> China</option>
+                <option value="Malaysia"> Malaysia</option>
+                <option value="Singapore"> Singapore </option>
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <td>Please write your Enquiry</td>
+            <td>
+              <textarea
+                name="Enquiry"
+                id="Enquiry"
+                cols="30"
+                rows="10"
+                placeholder="type your enquiry here" 
+                required></textarea>
+            </td>
+          </tr>
+        </form>
+      </table>
+      <p align="center">
+        <button onclick="checkData()">Submit</button>
+        <input type="reset" value="Reset">
+        <button><a href="index.html">Cancel</a></button> 
+      </p>
+      </fieldset>
+    </form>
+    </div>
+  </body>
+</html>
